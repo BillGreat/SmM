@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 -->
+<mapper namespace="com.zlj.springmvcMybatis01.dao.IUserDao">
+	<resultMap id="userVO" type="com.zlj.springmvcMybatis01.entity.UserVO">
+	   <result property="userId" column="userid" />   
+	   <result property="userName" column="userName"/>   
+	   <result property="passWord" column="passWord"/> 
+	</resultMap>
+
+    <select id="getUserById" resultType="com.zlj.springmvcMybatis01.entity.UserVO">
+        select * from zlj_manage_user u where u.userId=#{userId,jdbcType=VARCHAR}
+    </select>
+</mapper> 
